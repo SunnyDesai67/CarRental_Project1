@@ -15,10 +15,12 @@ import java.util.Scanner;
 public class CarDetails {
 
     Scanner scan1 = new Scanner(System.in);
+    Scanner scan2 = new Scanner(System.in);
     protected int carNumberPlate;
     private String customerName;
     private String customerSSN;
 
+    CheckValidation checkValidation = new CheckValidation();
     //   boolean isValidName;
     //   boolean isValidSSN;
 
@@ -26,15 +28,14 @@ public class CarDetails {
 
         System.out.println("Enter your Full Name: ");
         customerName = scan1.nextLine();
+        checkValidation.isValidName(customerName);
+    }
 
-        if (customerName.isEmpty()) {
-            System.out.println("Field cannot be empty: ");
-            new CarDetails();
-        }
-        else{
-            ModelDetailsOption MDO = new ModelDetailsOption();
-        }
-        scan1.close();
 
+    public CarDetails(int i){
+
+        System.out.println("Enter Social Security Number: ");
+        customerSSN = scan2.nextLine();
+        checkValidation.isValidSSN(customerSSN);
     }
 }

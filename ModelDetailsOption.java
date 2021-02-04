@@ -14,7 +14,6 @@ public class ModelDetailsOption implements CarModelDetails {
 
     File file = new File("/Users/sunny/IdeaProjects/SunnyTemplate/CarRental/src/com/TextFIle/FeedbackForm.txt");
 
-
     public void Accord() {
         System.out.println("Here your Accord 001 details");
     }
@@ -32,14 +31,15 @@ public class ModelDetailsOption implements CarModelDetails {
         int options;
         Scanner sc1 = new Scanner(System.in);
 
+        System.out.println("\n");
         System.out.println("Please Choice your RIDE " );
-
-        //System.out.println("\n");
+        System.out.println("------------------------");
         System.out.println("1. Accord ");
         System.out.println("2. Civic ");
         System.out.println("3. Pilot ");
         System.out.println("4. Give us Feedback");
         System.out.println("5. Exit");
+        System.out.println("------------------------");
 
         do {
             System.out.println("Please select 1 to 5 options");
@@ -69,6 +69,7 @@ public class ModelDetailsOption implements CarModelDetails {
                     break;
                 case 5:
                     System.out.println("Exiting...");
+                    break;
                 default:
                     System.out.println("please choice your car first...!!!");
                     break;

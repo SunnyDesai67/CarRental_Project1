@@ -10,41 +10,50 @@ import java.util.regex.Pattern;
 
 class CheckValidation {
 
-    private int number;
-    private String customerSSN ;
-    private String customerName;
+    public void isValidName(String s) {
 
+        if (s.isEmpty()){
+            System.out.println("Field cannot be empty (2)");
+            new CarDetails();
+        }
 
-    public CheckValidation(Scanner s)
-    {
-        String ss = s.toString();
-        if (ss.isEmpty()){
-            System.out.println("Field cannot be empty");
+        // CHECK VALIDATION
+        String correctMatch = "^[A-Za-z]$";
+        String matchWith = "Vasudev Desai";
+
+        Pattern pattern = Pattern.compile(matchWith);
+        Matcher matchPattern = pattern.matcher(s);
+        if (matchPattern.find())
+        {
+            System.out.println("Valid");
+            new CarDetails(1);
         }
         else {
-            String correctMatch = "^[A-Za-z]$";
-            // CHECK VALIDATION
-            Pattern pattern = Pattern.compile(correctMatch);
-            Matcher matchPattern = pattern.matcher(s.toString());
-
-            matchPattern.find();
-            System.out.println("Username is : " + ss);
-            s.close();
+            System.out.println("Re-enter valid Name:");
+            new CarDetails();
         }
-    }
-    public CheckValidation(Scanner sc, int a){
-        if (customerName.isEmpty()){
-            System.out.println("Field cannot be empty");
+}
+
+    public void isValidSSN(String s){
+        if (s.isEmpty()){
+            System.out.println("Field cannot be empty (3)");
+            new CarDetails(1);
         }
         else {
-            // CHECK VALIDATION
-            String s ="[0-9]";
-            Pattern pattern = Pattern.compile(s);
-            Matcher matchPattern = pattern.matcher(s.toString());
+            // CHECK VALIDATION FOR SOCIAL SECURITY NUMBER
+            String s1 ="^(?!000|666|9\\d{2})\\d{3}"+"-(!00)\\d{2}-"+"(!0{4})\\d{4}$";
+            String s2 = "111-22-3333";
+            Pattern pattern = Pattern.compile(s2);
+            Matcher matchPattern = pattern.matcher(s);
 
             if (matchPattern.find()) {
-                System.out.println("Username is : " + s);
+                System.out.println("Valid \n");
+                ModelDetailsOption MDO = new ModelDetailsOption();
             }
-            return;
+            else{
+                System.out.println("Re-enter valid Number");
+                new CarDetails(1);
+            }
+        }
     }
-}}
+}
