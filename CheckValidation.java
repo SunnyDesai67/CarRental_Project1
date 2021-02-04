@@ -19,7 +19,7 @@ class CheckValidation {
 
         // CHECK VALIDATION
         String correctMatch = "^[A-Za-z]$";
-        String matchWith = "Vasudev Desai";
+        String matchWith = "John Cena";
 
         Pattern pattern = Pattern.compile(matchWith);
         Matcher matchPattern = pattern.matcher(s);
